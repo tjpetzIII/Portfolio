@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
+import Certifications from "@/components/Certifications";
 import Projects from "@/components/Projects";
 import Activities from "@/components/Activities";
 import Contact from "@/components/Contact";
@@ -9,6 +10,7 @@ export default function Home() {
     <main>
       <Hero />
       <Experience />
+      <Certifications />
       <Projects />
       <Activities />
       <Contact />

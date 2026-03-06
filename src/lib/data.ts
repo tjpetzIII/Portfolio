@@ -1,11 +1,11 @@
 export const profile = {
-  name: "Your Name",
+  name: "Thomas Petz",
   title: "Software Engineer",
-  bio: "I build things for the web. Passionate about clean code, great user experiences, and solving hard problems.",
-  location: "San Francisco, CA",
-  email: "you@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  bio: "Focused on solving real business concerns with data and technology. Advancing through software engineer levels toward team lead and software architecture.",
+  location: "Philadelphia, PA",
+  email: "tompetz2000@gmail.com",
+  github: "https://github.com/tjpetzIII",
+  linkedin: "https://www.linkedin.com/in/tpetz1/",
 };
 
 export type Experience = {
@@ -19,31 +19,38 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    company: "Acme Corp",
-    role: "Senior Software Engineer",
-    period: "Jan 2023 – Present",
-    location: "San Francisco, CA",
+    company: "Elsevier (ELS)",
+    role: "Software Engineer II",
+    period: "Jun 2023 – Present",
+    location: "Philadelphia, PA",
     description:
-      "Led development of core platform features serving 1M+ users. Architected microservices migration reducing latency by 40%.",
-    skills: ["TypeScript", "React", "Node.js", "AWS"],
+      "Driving feature development and maintenance across the backend and frontend of Osmosis. Leading Tailwind CSS standardization to ensure a consistent and efficient codebase. Presenting sprint demos to stakeholders to communicate team progress and outcomes.",
+    skills: ["TypeScript", "React", "Tailwind CSS", "Node.js"],
   },
   {
-    company: "Startup Inc",
-    role: "Software Engineer",
-    period: "Jun 2021 – Dec 2022",
-    location: "Remote",
+    company: "American Commercial Barge Line",
+    role: "BI Developer Intern",
+    period: "Jun 2022 – Jun 2023",
+    location: "Jeffersonville, IN",
     description:
-      "Built full-stack features across the product. Improved CI/CD pipeline reducing deploy times by 60%.",
-    skills: ["Python", "Django", "PostgreSQL", "Docker"],
+      "Developed business intelligence solutions to support data-driven decision making across the organization.",
+    skills: ["SQL", "Business Intelligence", "Data Visualization"],
   },
+];
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  date: string;
+  credentialId?: string;
+};
+
+export const certifications: Certification[] = [
   {
-    company: "Dev Agency",
-    role: "Junior Developer",
-    period: "May 2020 – May 2021",
-    location: "New York, NY",
-    description:
-      "Delivered client projects across web and mobile. Collaborated closely with designers to build pixel-perfect UIs.",
-    skills: ["JavaScript", "Vue.js", "CSS", "Firebase"],
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    date: "2024",
+    credentialId: undefined,
   },
 ];
 

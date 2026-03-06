@@ -4,7 +4,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading number="02" title="Personal Projects" />
+        <SectionHeading number="03" title="Personal Projects" />
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <div
@@ -12,7 +12,7 @@ export default function Projects() {
               className="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-accent/50 hover:-translate-y-1 transition-all"
             >
               <div className="flex items-start justify-between mb-4">
-                <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                 </svg>
                 <div className="flex gap-3">
@@ -66,7 +66,7 @@ export default function Projects() {
 function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="font-mono text-accent text-sm">{number}.</span>
+      <span className="font-mono text-accent-secondary text-sm">{number}.</span>
       <h2 className="text-2xl font-bold">{title}</h2>
       <div className="flex-1 h-px bg-border" />
     </div>

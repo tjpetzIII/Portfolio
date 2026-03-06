@@ -7,7 +7,7 @@ export default function Hero() {
       className="min-h-screen flex items-center pt-16"
     >
       <div className="max-w-5xl mx-auto px-6 py-24">
-        <p className="text-accent font-mono text-sm mb-4">Hi, my name is</p>
+        <p className="text-accent-secondary font-mono text-sm mb-4">Hi, my name is</p>
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
           {profile.name}
         </h1>
@@ -18,7 +18,7 @@ export default function Hero() {
           {profile.bio}
         </p>
         <div className="flex items-center gap-4 text-sm text-muted mb-10">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
@@ -33,7 +33,7 @@ export default function Hero() {
           </a>
           <a
             href={`mailto:${profile.email}`}
-            className="px-6 py-3 border border-border rounded-lg text-sm font-medium hover:border-accent hover:text-accent transition-colors"
+            className="px-6 py-3 border border-border rounded-lg text-sm font-medium hover:border-accent-secondary hover:text-accent-secondary transition-colors"
           >
             Get in touch
           </a>

@@ -28,7 +28,7 @@ export default function Experience() {
                 {exp.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full font-mono"
+                    className="px-3 py-1 bg-accent-secondary/10 text-accent-secondary text-xs rounded-full font-mono"
                   >
                     {skill}
                   </span>
@@ -45,7 +45,7 @@ export default function Experience() {
 function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="font-mono text-accent text-sm">{number}.</span>
+      <span className="font-mono text-accent-secondary text-sm">{number}.</span>
       <h2 className="text-2xl font-bold">{title}</h2>
       <div className="flex-1 h-px bg-border" />
     </div>
