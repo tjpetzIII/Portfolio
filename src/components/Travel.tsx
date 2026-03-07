@@ -35,7 +35,7 @@ export default function Travel() {
   return (
     <section id="travel" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading number="05" title="Travel" />
+        <SectionHeading number="01" title="Travel" />
         <p className="mt-6 text-muted leading-relaxed max-w-xl">
           Places I&apos;ve been lucky enough to explore. Always planning the next trip.
         </p>

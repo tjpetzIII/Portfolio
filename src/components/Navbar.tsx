@@ -2,6 +2,7 @@
 
 import { profile } from "@/lib/data";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 
@@ -11,18 +12,24 @@ const navLinks = [
   { href: "#certifications", label: "Certifications" },
   { href: "#projects", label: "Projects" },
   { href: "#activities", label: "Activities" },
-  { href: "#travel", label: "Travel" },
+  { href: "/travel", label: "Travel" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  function resolveHref(href: string) {
+    return href.startsWith("#") && !isHome ? `/${href}` : href;
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-sm border-b border-border">
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
-          href="#about"
+          href={resolveHref("#about")}
           className="font-semibold text-lg tracking-tight text-accent-secondary"
         >
           {profile.name}
@@ -33,7 +40,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
-                href={link.href}
+                href={resolveHref(link.href)}
                 className="hover:text-accent-secondary transition-colors"
               >
                 {link.label}
@@ -91,7 +98,7 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
-                  href={link.href}
+                  href={resolveHref(link.href)}
                   className="hover:text-accent-secondary transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
