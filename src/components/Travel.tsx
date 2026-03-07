@@ -6,8 +6,31 @@ import { travelLocations } from "@/lib/data";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
+// ISO 3166-1 numeric codes used by world-atlas topojson
+const COUNTRY_ISO: Record<string, string> = {
+  "united states": "840",
+  "france": "250",
+  "netherlands": "528",
+  "italy": "380",
+  "canada": "124",
+  "united kingdom": "826",
+  "germany": "276",
+  "spain": "724",
+  "japan": "392",
+  "australia": "036",
+  "brazil": "076",
+  "mexico": "484",
+};
+
+function getCountryId(country: string): string | undefined {
+  return COUNTRY_ISO[country.toLowerCase().trim()];
+}
+
 export default function Travel() {
   const [hoveredName, setHoveredName] = useState<string | null>(null);
+
+  const hoveredLoc = travelLocations.find((l) => l.name === hoveredName);
+  const highlightedId = hoveredLoc ? getCountryId(hoveredLoc.country) : undefined;
 
   return (
     <section id="travel" className="py-24">
@@ -24,27 +47,31 @@ export default function Travel() {
           >
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
-                geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    style={{
-                      default: {
-                        fill: "var(--border)",
-                        stroke: "var(--card)",
-                        strokeWidth: 0.5,
-                        outline: "none",
-                      },
-                      hover: {
-                        fill: "var(--muted)",
-                        stroke: "var(--card)",
-                        strokeWidth: 0.5,
-                        outline: "none",
-                      },
-                      pressed: { outline: "none" },
-                    }}
-                  />
-                ))
+                geographies.map((geo) => {
+                  const isHighlighted = highlightedId !== undefined && String(geo.id) === highlightedId;
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      style={{
+                        default: {
+                          fill: isHighlighted ? "var(--accent-secondary)" : "var(--border)",
+                          stroke: "var(--card)",
+                          strokeWidth: 0.5,
+                          outline: "none",
+                          transition: "fill 0.2s ease",
+                        },
+                        hover: {
+                          fill: isHighlighted ? "var(--accent-secondary)" : "var(--muted)",
+                          stroke: "var(--card)",
+                          strokeWidth: 0.5,
+                          outline: "none",
+                        },
+                        pressed: { outline: "none" },
+                      }}
+                    />
+                  );
+                })
               }
             </Geographies>
             {/* Pass 1: all dots */}

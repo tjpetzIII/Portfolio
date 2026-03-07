@@ -106,7 +106,7 @@ export const travelLocations: TravelLocation[] = [
   },
   {
     name: "Harbor Springs",
-    country: "Unitied States",
+    country: "United States",
     coordinates: [-84.9920, 45.4317],
     note: "Some of the best sunsets and landscape in the country.",
   },
@@ -138,8 +138,14 @@ export const travelLocations: TravelLocation[] = [
     name: "Napoli",
     country: "Italy",
     coordinates: [14.2681,40.8518 ],
-    note: "Where I got addicted to espresso."
-  }
+    note: "Where I got addicted to espresso.",
+  },
+  {
+    name: "Montreal",
+    country: "Canada",
+    coordinates: [ -73.5674, 45.5019],
+    note: "2019 Canadian F1 Gran Prix.",
+  },
 ];
 
 export type Activity = {
