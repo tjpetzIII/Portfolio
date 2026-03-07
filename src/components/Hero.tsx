@@ -3,71 +3,78 @@ import { profile } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section id="about" className="min-h-screen flex items-center pt-16">
-      <div className="max-w-5xl mx-auto px-6 py-24 w-full">
-        <div>
-          <p className="text-accent-secondary font-mono text-sm mb-4">
-            Hi, my name is
-          </p>
-          <div className="flex items-center gap-8 mb-8">
-            <div>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-2">
-                {profile.name}
-              </h1>
-              <h2 className="text-3xl md:text-5xl font-bold text-muted">
-                {profile.title}
-              </h2>
-            </div>
-            <div className="relative w-28 h-28 md:w-36 md:h-36 shrink-0 overflow-hidden">
-              <Image
-                src="/images/personalPicture.png"
-                alt={profile.name}
-                fill
-                className="object-cover object-top"
-                priority
-              />
-            </div>
-          </div>
-          <p className="text-muted text-lg max-w-xl mb-10 leading-relaxed">
-            {profile.bio}
-          </p>
+    <section
+      id="about"
+      className="min-h-screen flex items-center pt-16 relative overflow-hidden"
+    >
+      {/* Decorative background blobs */}
+      <div
+        className="absolute top-1/4 -left-32 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
+        style={{ background: "var(--accent)" }}
+      />
+      <div
+        className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
+        style={{ background: "var(--accent-secondary)" }}
+      />
 
-          <div className="flex items-center gap-4 text-sm text-muted mb-10">
-            <svg
-              className="w-4 h-4 text-accent-secondary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-            {profile.location}
+      <div className="max-w-5xl mx-auto px-6 py-24 w-full relative">
+        <p
+          className="font-mono text-sm mb-5 tracking-widest uppercase"
+          style={{ color: "var(--accent-secondary)" }}
+        >
+          Hi, my name is
+        </p>
+        <div className="flex items-center gap-8 mb-8">
+          <div>
+            <h1 className="gradient-text text-5xl md:text-7xl font-black tracking-tight mb-3 leading-none">
+              {profile.name}
+            </h1>
+            <h2 className="text-2xl md:text-4xl font-bold text-muted">
+              {profile.title}
+            </h2>
           </div>
-          <div className="flex gap-4">
-            <a
-              href="#experience"
-              className="px-6 py-3 bg-accent text-white rounded-lg text-sm font-medium hover:bg-[var(--accent-hover)] transition-colors"
-            >
-              View my work
-            </a>
-            <a
-              href={`mailto:${profile.email}`}
-              className="px-6 py-3 border border-border rounded-lg text-sm font-medium hover:border-accent-secondary hover:text-accent-secondary transition-colors"
-            >
-              Get in touch
-            </a>
+          <div className="relative w-28 h-28 md:w-36 md:h-36 shrink-0 overflow-hidden rounded-2xl">
+            <Image
+              src="/images/personalPicture.png"
+              alt={profile.name}
+              fill
+              className="object-cover object-top"
+              priority
+            />
           </div>
+        </div>
+        <p className="text-muted text-lg max-w-xl mb-10 leading-relaxed">
+          {profile.bio}
+        </p>
+
+        <div className="flex items-center gap-2 text-sm text-muted mb-10">
+          <svg
+            className="w-4 h-4 shrink-0"
+            style={{ color: "var(--accent-secondary)" }}
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+          {profile.location}
+        </div>
+        <div className="flex gap-4 flex-wrap">
+          <a
+            href="#experience"
+            className="px-7 py-3 text-white rounded-xl text-sm font-semibold transition-all hover:scale-105 hover:shadow-lg"
+            style={{
+              background:
+                "linear-gradient(135deg, var(--accent), var(--accent-secondary))",
+            }}
+          >
+            View my work
+          </a>
+          <a
+            href={`mailto:${profile.email}`}
+            className="px-7 py-3 rounded-xl text-sm font-semibold border border-border text-muted hover:border-accent hover:text-accent transition-all hover:scale-105"
+          >
+            Get in touch
+          </a>
         </div>
       </div>
     </section>

@@ -26,11 +26,12 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b"
+      style={{ background: "color-mix(in srgb, var(--background) 80%, transparent)", borderColor: "var(--border)" }}>
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href={resolveHref("#about")}
-          className="font-semibold text-lg tracking-tight text-accent-secondary"
+          className="gradient-text font-black text-lg tracking-tight"
         >
           {profile.name}
         </Link>
@@ -41,7 +42,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={resolveHref(link.href)}
-                className="hover:text-accent-secondary transition-colors"
+                className="hover:text-foreground transition-colors font-medium"
               >
                 {link.label}
               </Link>

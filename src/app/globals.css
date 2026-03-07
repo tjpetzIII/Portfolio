@@ -1,16 +1,21 @@
 @import "tailwindcss";
 
+/* ─── Redwood & Moss ──────────────────────────────────────────────
+   Light: warm ivory linen, walnut text, fern green + redwood rust
+   Dark:  deep forest floor, birch cream, spring fern + ember glow
+   ────────────────────────────────────────────────────────────── */
+
 /* Light mode defaults */
 :root {
-  --background: #ffffff;
-  --foreground: #1a0f00;
-  --card: #fff5eb;
-  --border: #f0d5b0;
-  --muted: #8b5a2b;
-  --accent: #2d6a4f;
-  --accent-hover: #1b4332;
-  --accent-secondary: #b45309;
-  --accent-secondary-hover: #92400e;
+  --background: #faf6ee;
+  --foreground: #1c1208;
+  --card: #f2e8d8;
+  --border: #d6c4a4;
+  --muted: #7c6248;
+  --accent: #2e6a48;
+  --accent-hover: #1e4e32;
+  --accent-secondary: #b5451c;
+  --accent-secondary-hover: #8f3314;
 }
 
 @theme inline {
@@ -28,49 +33,72 @@
 /* System dark mode preference (no explicit choice) */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --background: #0d1a0d;
-    --foreground: #e2edd8;
-    --card: #132113;
-    --border: #254025;
-    --muted: #7aaa6a;
-    --accent: #52b788;
-    --accent-hover: #74c99a;
-    --accent-secondary: #f59e0b;
-    --accent-secondary-hover: #fbbf24;
+    --background: #0c130a;
+    --foreground: #ede6d2;
+    --card: #141f10;
+    --border: #223520;
+    --muted: #8aab78;
+    --accent: #58c47e;
+    --accent-hover: #74d494;
+    --accent-secondary: #e87a35;
+    --accent-secondary-hover: #f09050;
   }
 }
 
 /* Explicit theme overrides */
 [data-theme="dark"] {
-  --background: #0d1a0d;
-  --foreground: #e2edd8;
-  --card: #132113;
-  --border: #254025;
-  --muted: #7aaa6a;
-  --accent: #52b788;
-  --accent-hover: #74c99a;
-  --accent-secondary: #f59e0b;
-  --accent-secondary-hover: #fbbf24;
+  --background: #0c130a;
+  --foreground: #ede6d2;
+  --card: #141f10;
+  --border: #223520;
+  --muted: #8aab78;
+  --accent: #58c47e;
+  --accent-hover: #74d494;
+  --accent-secondary: #e87a35;
+  --accent-secondary-hover: #f09050;
 }
 
 [data-theme="light"] {
-  --background: #ffffff;
-  --foreground: #1a0f00;
-  --card: #fff5eb;
-  --border: #f0d5b0;
-  --muted: #8b5a2b;
-  --accent: #2d6a4f;
-  --accent-hover: #1b4332;
-  --accent-secondary: #b45309;
-  --accent-secondary-hover: #92400e;
+  --background: #faf6ee;
+  --foreground: #1c1208;
+  --card: #f2e8d8;
+  --border: #d6c4a4;
+  --muted: #7c6248;
+  --accent: #2e6a48;
+  --accent-hover: #1e4e32;
+  --accent-secondary: #b5451c;
+  --accent-secondary-hover: #8f3314;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  /* Subtle canopy-light atmosphere: warm green from top-left, amber from bottom-right */
+  background-image:
+    radial-gradient(ellipse 70% 50% at 15% 0%,   color-mix(in srgb, var(--accent) 7%, transparent) 0%, transparent 100%),
+    radial-gradient(ellipse 60% 40% at 85% 100%,  color-mix(in srgb, var(--accent-secondary) 6%, transparent) 0%, transparent 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Gradient text — fern green angled into redwood rust */
+.gradient-text {
+  background: linear-gradient(150deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card warm-glow hover — uses accent colour for the ring + organic shadow */
+.card-gradient-hover {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card-gradient-hover:hover {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 60%, transparent),
+    0 6px 28px color-mix(in srgb, var(--accent) 12%, transparent),
+    0 2px 8px  color-mix(in srgb, var(--accent-secondary) 8%, transparent);
 }

@@ -9,12 +9,15 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.name}
-              className="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-accent/50 hover:-translate-y-1 transition-all"
+              className="bg-card border border-border rounded-2xl p-6 flex flex-col hover:-translate-y-1.5 transition-all card-gradient-hover"
             >
-              <div className="flex items-start justify-between mb-4">
-                <svg className="w-8 h-8 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                </svg>
+              <div className="flex items-start justify-between mb-5">
+                <div className="p-2 rounded-lg"
+                  style={{ background: "color-mix(in srgb, var(--accent) 12%, transparent)" }}>
+                  <svg className="w-5 h-5" style={{ color: "var(--accent)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                  </svg>
+                </div>
                 <div className="flex gap-3">
                   {project.github && (
                     <a
@@ -44,13 +47,14 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-              <h3 className="font-semibold text-base mb-2">{project.name}</h3>
-              <p className="text-muted text-sm leading-relaxed flex-1 mb-4">
+              <h3 className="font-bold text-base mb-2">{project.name}</h3>
+              <p className="text-muted text-sm leading-relaxed flex-1 mb-5">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mt-auto">
                 {project.tech.map((t) => (
-                  <span key={t} className="font-mono text-xs text-muted">
+                  <span key={t} className="font-mono text-xs px-2 py-0.5 rounded-md"
+                    style={{ background: "color-mix(in srgb, var(--accent-secondary) 8%, transparent)", color: "var(--accent-secondary)" }}>
                     {t}
                   </span>
                 ))}
@@ -66,9 +70,12 @@ export default function Projects() {
 function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="font-mono text-accent-secondary text-sm">{number}.</span>
-      <h2 className="text-2xl font-bold">{title}</h2>
-      <div className="flex-1 h-px bg-border" />
+      <span className="font-black text-5xl leading-none select-none"
+        style={{ color: "color-mix(in srgb, var(--accent) 20%, transparent)" }}>
+        {number}.
+      </span>
+      <h2 className="text-2xl font-black">{title}</h2>
+      <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
     </div>
   );
 }
