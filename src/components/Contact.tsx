@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading number="05" title="Get In Touch" />
+        <SectionHeading number="06" title="Get In Touch" />
         <div className="mt-12 max-w-lg">
           <p className="text-muted leading-relaxed mb-8">
             I&apos;m always open to new opportunities, collaborations, or just a

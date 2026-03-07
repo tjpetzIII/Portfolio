@@ -89,6 +89,59 @@ export const projects: Project[] = [
   },
 ];
 
+export type TravelLocation = {
+  name: string;
+  country: string;
+  coordinates: [number, number]; // [longitude, latitude]
+  note?: string;
+};
+
+// Update these with your actual travel locations
+export const travelLocations: TravelLocation[] = [
+  {
+    name: "Philadelphia",
+    country: "United States",
+    coordinates: [-75.1652, 39.9526],
+    note: "Home base.",
+  },
+  {
+    name: "Harbor Springs",
+    country: "Unitied States",
+    coordinates: [-84.9920, 45.4317],
+    note: "Some of the best sunsets and landscape in the country.",
+  },
+  {
+    name: "Paris",
+    country: "France",
+    coordinates: [2.3514, 48.8575],
+    note: "Got stuck here for an extra weekend because Heathrow Airport fully shutdown.",
+  },
+  {
+    name: "Amsterdam",
+    country: "Netherlands",
+    coordinates: [4.89707, 52.377956],
+    note: "Gorgeous windmills and parks",
+  },
+  {
+    name: "San Francisco",
+    country: "United States",
+    coordinates: [ -122.431297, 37.773972],
+    note: "Loved the Sea Lions",
+  },
+  {
+    name: "Rome",
+    country: "Italy",
+    coordinates: [12.496365, 41.902782],
+    note: "Amazing architecture",
+  },
+  {
+    name: "Napoli",
+    country: "Italy",
+    coordinates: [14.2681,40.8518 ],
+    note: "Where I got addicted to espresso."
+  }
+];
+
 export type Activity = {
   title: string;
   category: string;
