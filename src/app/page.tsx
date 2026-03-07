@@ -3,6 +3,7 @@ import Experience from "@/components/Experience";
 import Certifications from "@/components/Certifications";
 import Projects from "@/components/Projects";
 import Activities from "@/components/Activities";
+import Travel from "@/components/Travel";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Certifications />
       <Projects />
       <Activities />
+      <Travel />
       <Contact />
       <footer className="text-center text-muted text-xs py-8 border-t border-border">
         Built with Next.js &amp; Tailwind CSS
