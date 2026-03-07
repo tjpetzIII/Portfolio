@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+} from "react-simple-maps";
 import { travelLocations } from "@/lib/data";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
@@ -9,17 +14,17 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 // ISO 3166-1 numeric codes used by world-atlas topojson
 const COUNTRY_ISO: Record<string, string> = {
   "united states": "840",
-  "france": "250",
-  "netherlands": "528",
-  "italy": "380",
-  "canada": "124",
+  france: "250",
+  netherlands: "528",
+  italy: "380",
+  canada: "124",
   "united kingdom": "826",
-  "germany": "276",
-  "spain": "724",
-  "japan": "392",
-  "australia": "036",
-  "brazil": "076",
-  "mexico": "484",
+  germany: "276",
+  spain: "724",
+  japan: "392",
+  australia: "036",
+  brazil: "076",
+  mexico: "484",
 };
 
 function getCountryId(country: string): string | undefined {
@@ -30,14 +35,17 @@ export default function Travel() {
   const [hoveredName, setHoveredName] = useState<string | null>(null);
 
   const hoveredLoc = travelLocations.find((l) => l.name === hoveredName);
-  const highlightedId = hoveredLoc ? getCountryId(hoveredLoc.country) : undefined;
+  const highlightedId = hoveredLoc
+    ? getCountryId(hoveredLoc.country)
+    : undefined;
 
   return (
     <section id="travel" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeading number="01" title="Travel" />
         <p className="mt-6 text-muted leading-relaxed max-w-xl">
-          Places I&apos;ve been lucky enough to explore. Always planning the next trip.
+          Places I&apos;ve been lucky enough to explore. Always planning the
+          next trip.
         </p>
 
         <div className="mt-8 bg-card border border-border rounded-xl overflow-hidden">
@@ -48,21 +56,27 @@ export default function Travel() {
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map((geo) => {
-                  const isHighlighted = highlightedId !== undefined && String(geo.id) === highlightedId;
+                  const isHighlighted =
+                    highlightedId !== undefined &&
+                    String(geo.id) === highlightedId;
                   return (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
                       style={{
                         default: {
-                          fill: isHighlighted ? "var(--accent-secondary)" : "var(--border)",
+                          fill: isHighlighted
+                            ? "var(--accent-secondary)"
+                            : "var(--border)",
                           stroke: "var(--card)",
                           strokeWidth: 0.5,
                           outline: "none",
                           transition: "fill 0.2s ease",
                         },
                         hover: {
-                          fill: isHighlighted ? "var(--accent-secondary)" : "var(--muted)",
+                          fill: isHighlighted
+                            ? "var(--accent-secondary)"
+                            : "var(--muted)",
                           stroke: "var(--card)",
                           strokeWidth: 0.5,
                           outline: "none",
@@ -94,7 +108,12 @@ export default function Travel() {
               return (
                 <Marker key={`label-${loc.name}`} coordinates={loc.coordinates}>
                   <g transform="translate(-30, -28)">
-                    <rect width={60} height={18} rx={4} fill="var(--foreground)" />
+                    <rect
+                      width={60}
+                      height={18}
+                      rx={4}
+                      fill="var(--foreground)"
+                    />
                     <text
                       x={30}
                       y={12}
@@ -135,7 +154,9 @@ export default function Travel() {
                 <p className="font-semibold text-sm">{loc.name}</p>
                 <p className="text-muted text-xs">{loc.country}</p>
                 {loc.note && (
-                  <p className="text-muted text-xs mt-1 leading-relaxed">{loc.note}</p>
+                  <p className="text-muted text-xs mt-1 leading-relaxed">
+                    {loc.note}
+                  </p>
                 )}
               </div>
             </div>
