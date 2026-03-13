@@ -15,7 +15,8 @@ npm run dev   # http://localhost:3000
 npm run dev      # Start dev server
 npm run build    # Production build
 npm run lint     # Run ESLint
-npm test         # Run Jest tests
+npm test         # Run Jest unit tests
+npm run test:e2e # Run Playwright e2e tests
 ```
 
 ## 📁 Project Structure
@@ -29,6 +30,9 @@ src/
 ├── components/           # Hero, Experience, Projects, Activities, Contact, Navbar
 └── lib/
     └── data.ts           # ✏️ All site content lives here
+e2e/
+├── home.spec.ts          # E2E tests for the main portfolio page
+└── travel.spec.ts        # E2E tests for the travel page
 ```
 
 ## ✏️ Updating Content
@@ -41,9 +45,25 @@ Color palette is defined via CSS custom properties in `globals.css`. Dark mode i
 
 ## 🧪 Testing
 
+### Unit Tests
+
 Tests use Jest + `@testing-library/react`. Test files live next to their source files (`.test.tsx`).
 
 ```bash
-npm test                                    # Run all tests
+npm test                                    # Run all unit tests
 npx jest --testPathPatterns=<filename>      # Run a single test file
 ```
+
+### End-to-End Tests
+
+E2E tests use Playwright (Chromium) and run against the dev server. The dev server must be running before executing them.
+
+```bash
+npm run dev      # Start dev server first
+npm run test:e2e # Run all e2e tests
+```
+
+E2E test files live in `e2e/`:
+
+- `e2e/home.spec.ts` — covers the full main page: navbar, hero, experience, certifications, projects, activities, contact, and section navigation
+- `e2e/travel.spec.ts` — covers the travel page: map rendering, location cards, and navbar behavior
