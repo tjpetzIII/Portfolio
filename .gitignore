@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/test-results/
+.last-run.json
 
 # next.js
 /.next/
@@ -43,5 +45,3 @@ next-env.d.ts
 # mcp server output
 .playwright-mcp
 
-# tests results
-test-results
