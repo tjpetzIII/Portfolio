@@ -1,0 +1,8 @@
+npm run dev &
+DEV_PID=$!
+trap "kill $DEV_PID 2>/dev/null" EXIT
+
+# Wait for dev server to be ready
+npx wait-on http://localhost:3000 --timeout 30000
+
+npm run test:e2e
