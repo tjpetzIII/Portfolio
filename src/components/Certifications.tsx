@@ -2,28 +2,24 @@ import { certifications } from "@/lib/data";
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-24">
-      <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading number="02" title="Certifications" />
-        <div className="mt-12 space-y-4">
+    <section id="certifications" className="py-16">
+      <div className="max-w-5xl mx-auto px-4">
+        <SectionHeading title="Certifications" />
+        <div className="mt-8 space-y-3">
           {certifications.map((cert) => (
             <div
               key={cert.name}
-              className="bg-card border border-border rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 transition-all hover:-translate-y-0.5 card-gradient-hover"
+              className="bg-card border px-4 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 card-gradient-hover"
+              style={{ borderColor: "var(--border)", borderLeft: "3px solid var(--accent-secondary)" }}
             >
-              <div className="flex items-center gap-4">
-                <div className="p-2 rounded-xl shrink-0"
-                  style={{ background: "linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--accent-secondary) 15%, transparent))" }}>
-                  <svg className="w-5 h-5" style={{ color: "var(--accent)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
+              <div className="flex items-center gap-3">
+                <span style={{ color: "var(--accent-secondary)", fontSize: "16px" }}>&#9733;</span>
                 <div>
-                  <h3 className="font-bold text-base">{cert.name}</h3>
-                  <p className="text-muted text-sm">{cert.issuer}</p>
+                  <h3 className="font-bold text-sm">{cert.name}</h3>
+                  <p className="text-xs" style={{ color: "var(--muted)" }}>{cert.issuer}</p>
                 </div>
               </div>
-              <div className="text-sm text-muted sm:text-right shrink-0 font-mono">
+              <div className="text-xs sm:text-right shrink-0" style={{ color: "var(--muted)", fontFamily: "monospace" }}>
                 <p>{cert.date}</p>
                 {cert.credentialId && (
                   <p className="text-xs">{cert.credentialId}</p>
@@ -37,15 +33,16 @@ export default function Certifications() {
   );
 }
 
-function SectionHeading({ number, title }: { number: string; title: string }) {
+function SectionHeading({ title }: { title: string }) {
   return (
-    <div className="flex items-center gap-4">
-      <span className="font-black text-5xl leading-none select-none"
-        style={{ color: "color-mix(in srgb, var(--accent) 20%, transparent)" }}>
-        {number}.
-      </span>
-      <h2 className="text-2xl font-black">{title}</h2>
-      <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
+    <div>
+      <h2
+        className="text-xl font-black mb-1"
+        style={{ color: "var(--accent)", fontFamily: "Arial Black, Arial, sans-serif" }}
+      >
+        {title}
+      </h2>
+      <hr style={{ borderColor: "var(--accent)", borderTopWidth: "2px" }} />
     </div>
   );
 }

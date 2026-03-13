@@ -2,24 +2,21 @@ import { activities } from "@/lib/data";
 
 export default function Activities() {
   return (
-    <section id="activities" className="py-24">
-      <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading number="04" title="Other Activities" />
-        <div className="mt-12 grid sm:grid-cols-2 gap-6">
+    <section id="activities" className="py-16">
+      <div className="max-w-5xl mx-auto px-4">
+        <SectionHeading title="Other Activities" />
+        <div className="mt-8 grid sm:grid-cols-2 gap-4">
           {activities.map((activity) => (
             <div
               key={activity.title}
-              className="bg-card border border-border rounded-2xl p-6 transition-all hover:-translate-y-0.5 card-gradient-hover"
+              className="bg-card border p-4 card-gradient-hover"
+              style={{ borderColor: "var(--border)", borderTop: "2px solid var(--accent-secondary)" }}
             >
-              <span className="inline-block px-3 py-1 text-xs rounded-full font-mono font-semibold mb-4"
-                style={{
-                  background: "linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--accent-secondary) 15%, transparent))",
-                  color: "var(--accent)"
-                }}>
+              <p className="text-xs font-bold mb-2" style={{ color: "var(--accent-secondary)", fontFamily: "monospace" }}>
                 {activity.category}
-              </span>
-              <h3 className="font-bold text-base mb-2">{activity.title}</h3>
-              <p className="text-muted text-sm leading-relaxed">
+              </p>
+              <h3 className="font-bold text-sm mb-2">{activity.title}</h3>
+              <p className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>
                 {activity.description}
               </p>
             </div>
@@ -30,15 +27,16 @@ export default function Activities() {
   );
 }
 
-function SectionHeading({ number, title }: { number: string; title: string }) {
+function SectionHeading({ title }: { title: string }) {
   return (
-    <div className="flex items-center gap-4">
-      <span className="font-black text-5xl leading-none select-none"
-        style={{ color: "color-mix(in srgb, var(--accent) 20%, transparent)" }}>
-        {number}.
-      </span>
-      <h2 className="text-2xl font-black">{title}</h2>
-      <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
+    <div>
+      <h2
+        className="text-xl font-black mb-1"
+        style={{ color: "var(--accent)", fontFamily: "Arial Black, Arial, sans-serif" }}
+      >
+        {title}
+      </h2>
+      <hr style={{ borderColor: "var(--accent)", borderTopWidth: "2px" }} />
     </div>
   );
 }

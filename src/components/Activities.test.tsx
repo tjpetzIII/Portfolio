@@ -8,11 +8,6 @@ describe("Activities", () => {
     expect(screen.getByText("Other Activities")).toBeInTheDocument();
   });
 
-  it("renders the section number", () => {
-    render(<Activities />);
-    expect(screen.getByText("04.")).toBeInTheDocument();
-  });
-
   it("renders all activity titles", () => {
     render(<Activities />);
     for (const activity of activities) {

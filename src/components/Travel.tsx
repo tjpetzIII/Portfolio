@@ -42,13 +42,13 @@ export default function Travel() {
   return (
     <section id="travel" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading number="01" title="Travel" />
-        <p className="mt-6 text-muted leading-relaxed max-w-xl">
+        <SectionHeading title="Travel" />
+        <p className="mt-6 text-sm leading-relaxed max-w-xl" style={{ color: "var(--muted)" }}>
           Places I&apos;ve been lucky enough to explore. Always planning the
           next trip.
         </p>
 
-        <div className="mt-8 bg-card border border-border rounded-2xl overflow-hidden">
+        <div className="mt-8 bg-card border overflow-hidden" style={{ borderColor: "var(--border)" }}>
           <ComposableMap
             projectionConfig={{ scale: 147, center: [0, 10] }}
             style={{ width: "100%", height: "auto" }}
@@ -139,7 +139,8 @@ export default function Travel() {
           {travelLocations.map((loc) => (
             <div
               key={loc.name}
-              className="flex items-start gap-3 bg-card border border-border rounded-2xl p-4 transition-all cursor-default card-gradient-hover"
+              className="flex items-start gap-3 bg-card border p-4 cursor-default card-gradient-hover"
+              style={{ borderColor: "var(--border)" }}
               onMouseEnter={() => setHoveredName(loc.name)}
               onMouseLeave={() => setHoveredName(null)}
             >
@@ -168,15 +169,16 @@ export default function Travel() {
   );
 }
 
-function SectionHeading({ number, title }: { number: string; title: string }) {
+function SectionHeading({ title }: { title: string }) {
   return (
-    <div className="flex items-center gap-4">
-      <span className="font-black text-5xl leading-none select-none"
-        style={{ color: "color-mix(in srgb, var(--accent) 20%, transparent)" }}>
-        {number}.
-      </span>
-      <h2 className="text-2xl font-black">{title}</h2>
-      <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
+    <div>
+      <h2
+        className="text-xl font-black mb-1"
+        style={{ color: "var(--accent)", fontFamily: "Arial Black, Arial, sans-serif" }}
+      >
+        {title}
+      </h2>
+      <hr style={{ borderColor: "var(--accent)", borderTopWidth: "2px" }} />
     </div>
   );
 }

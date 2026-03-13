@@ -5,7 +5,7 @@ import { profile } from "@/lib/data";
 describe("Hero", () => {
   it("renders the profile name", () => {
     render(<Hero />);
-    expect(screen.getByText(profile.name)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: profile.name })).toBeInTheDocument();
   });
 
   it("renders the profile title", () => {
